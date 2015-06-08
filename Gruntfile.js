@@ -7,11 +7,21 @@ module.exports = function(grunt) {
     watch: {
       files: ['src/**/*.js', 'spec/**/*.js'],
       tasks: ['jshint']
+    },
+    jasmine: {
+      pivotal: {
+        src: 'src/**/*.js',
+        options: {
+          specs: 'spec/*Spec.js',
+          helpers: 'spec/*Helper.js'
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   grunt.registerTask('default', ['jshint']);
 
